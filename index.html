@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Video</title>
+        <style>
+            section{
+                border:1px solid black;
+                border-radius: 20px;
+            }
+
+            #mainwrapper {
+                display: flex;
+                width: 80%;
+                margin: 20px auto;
+                padding: 10px;
+                box-shadow: lightseagreen 10px 10px 2000px inset;
+            }
+
+            #mainwrapper > section {
+                margin:10px;
+            }
+
+            #controlswrapper {
+                background-color: white;
+                display: flex;
+                flex-direction: column;
+                width: 10%;
+            }
+
+            #controlswrapper:hover {
+                background-color: lightcyan;
+            }
+
+            #videowrapper {
+               
+                flex-grow: 1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            input[type='button'] {
+                margin: 3px;
+                width: 80%;
+                height: 40px;
+                border-radius: 10px;
+                border: 3px solid green;
+                background-color: lightseagreen;
+                transition: all 2s;
+            }
+
+            input[type='button']:hover {
+                transform: rotate(360deg);
+                background-color: white;
+            }
+            
+            video {
+                border-radius: 100px;
+                width: 80%;
+                height: 80%;
+            }
+
+            video:hover {
+                transform: scale(1.2);
+            }
+        </style>
+        <script>
+            window.addEventListener("load", function () {
+
+                myvideo = document.getElementsByTagName("video")[0];
+
+                myvideo.addEventListener("click", function () {
+                    if (myvideo.paused) 
+                        myvideo.play();
+                    else 
+                        myvideo.pause();
+                }); 
+
+                myvideo.addEventListener("dblclick", function (e) {
+                    myvideo.requestFullscreen();
+                }); 
+
+                videoBtns = document.getElementsByTagName("input");
+
+                for (var i = 0; i < videoBtns.length; i++) {
+                    videoBtns[i].addEventListener("click", function (e) {
+                        myvideo.src="./"+e.target.value;
+                        myvideo.play();
+
+                    }); 
+                }
+
+            });
+        </script>
+    </head>
+    <body>
+        <section id="mainwrapper">
+            <section id="controlswrapper">
+                <input type="button" value="Benefits Of Team Work.mp4" />
+                <input type="button" value="Excellent Team Work - Must watch.mp4" />
+                <input type="button" value="Benefits Of Team Work.mp4" />
+                <input type="button" value="Excellent Team Work - Must watch.mp4" />
+                <input type="button" value="Benefits Of Team Work.mp4" />
+                <input type="button" value="Excellent Team Work - Must watch.mp4" />
+                <input type="button" value="Benefits Of Team Work.mp4" />
+                <input type="button" value="Excellent Team Work - Must watch.mp4" />
+                <input type="button" value="Benefits Of Team Work.mp4" />
+                <input type="button" value="Excellent Team Work - Must watch.mp4" />
+            </section>
+            <section id="videowrapper">
+                <video src="Benefits Of Team Work.mp4" >
+            </section>
+        </section>
+    </body>
+</html>
